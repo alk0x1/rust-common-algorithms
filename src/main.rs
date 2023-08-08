@@ -1,5 +1,4 @@
 mod binary_tree;
-mod graphs;
 use binary_tree::binary_tree::Node;
 use crate::binary_tree::print::Print;
 
