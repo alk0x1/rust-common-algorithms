@@ -9,13 +9,12 @@ pub trait Print<T: Debug> {
   fn dfs_pre_order(&self);
   fn dfs_in_order(&self);
   fn dfs_post_order(&self);
-  // fn bfs(&self, key: &i32) -> Option<&Node>;
+  fn bfs(&self);
 }
 
 // Implement the Search trait for Node
 // impl<T: PartialOrd> Search<T> for Node<T> {
 impl Print<i32> for Node<i32>  {
-
   // create new stack frames in each call. May cause stack overflow if the tree is too large
   fn dfs_pre_order_recursive(&self) {
     println!("val: {}" , &self.val);
@@ -30,7 +29,6 @@ impl Print<i32> for Node<i32>  {
       None => (),
     }
   }
-
   // safe way to implement, without stack overflow risk
   fn dfs_pre_order(&self) {
     let mut stack: Vec<&Node<i32>> = vec![];
@@ -91,7 +89,6 @@ impl Print<i32> for Node<i32>  {
     println!("val: {}", self.val);
   }
 
-
   fn dfs_post_order(&self) {
     let mut stack = Vec::new();
     let mut current = Some(self);
@@ -110,6 +107,14 @@ impl Print<i32> for Node<i32>  {
             println!("Node value: {:?}", node.val); // Process the node (e.g., print its value)
         }
       }
+    }
+  }
+
+  fn bfs(&self) {
+    let mut queue = Vec::new();
+
+    while !queue.is_empty() {
+      
     }
   }
 
